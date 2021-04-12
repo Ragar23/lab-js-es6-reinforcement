@@ -1,15 +1,22 @@
 // ***************************************************************************
 // Iteration 1 - `for...of` loop
 // ***************************************************************************
+//const { push } = require("./data.js");
+let usersArray = require ("./data.js")
 
 const getFirstNames = arr => {
   const userFirstNames = [];
   for (let user of arr) {
+    userFirstNames.push(user.firstName)
+    //console.log(userFirstNames)
     // Your code goes here ...
   }
+  return userFirstNames
 };
 
-getFirstNames(usersArray);
+
+
+console.log(getFirstNames(usersArray));
 // expected output:
 // [ 'Kirby', 'Tracie', 'Kendra', 'Kinney', 'Howard', 'Rachelle', 'Lizzie' ]
 
@@ -18,10 +25,18 @@ getFirstNames(usersArray);
 // ***************************************************************************
 
 const getFullNames = arr => {
-  // Your code goes here ...
+  let userFullNames = []
+  
+  //Return something 
+ for (let user of arr){
+  userFullNames.push(`${user.firstName} ${user.lastName}`)
+
+ }
+ return userFullNames
 };
 
-getFullNames(usersArray);
+
+console.log(getFullNames(usersArray));
 // expected output:
 // [ 'Kirby Doyle', 'Tracie May', 'Kendra Hines', 'Kinney Howard',
 //   'Howard Gilmore', 'Rachelle Schneider', 'Lizzie Alford' ]
@@ -30,11 +45,21 @@ getFullNames(usersArray);
 // Iteration 3 - ES6 destructuring , for of loop, object literal
 // ***************************************************************************
 
+//SYNTAX const {name: {first} , address } = person
+
+ 
 const getUsersCreditDetails = arr => {
+  //let {firstName, lastName, balance} = usersArray
+ let usersCreditDetails = []
+  for (let user of arr){
+  let {firstName, lastName, balance} = user
+  usersCreditDetails.push({firstName, lastName, balance})
+  }
   // Your code goes here ...
+  return usersCreditDetails
 };
 
-getUsersCreditDetails(usersArray);
+console.log(getUsersCreditDetails(usersArray));
 // expected output:
 // [ { firstName: 'Kirby', lastName: 'Doyle', balance: '$3,570.06' },
 // { firstName: 'Tracie', lastName: 'May', balance: '$1,547.73' },
@@ -50,9 +75,18 @@ getUsersCreditDetails(usersArray);
 
 const genderView = users => {
   // Your code goes here ...
+  let femaleArray = []
+  let femaleUsers =  users.filter((elem)=> {
+    return elem.gender = "female"
+  })
+
+  femaleArray.push(`${firstName} ${lastName}`) 
+  //let maleUsers 
+  return femaleArray []
+
 };
 
-genderView(usersArray);
+console.log(genderView(usersArray));
 // expected output:
 // {
 //    femaleUsers: [ 'Tracie May', 'Kendra Hines', 'Rachelle Schneider', 'Lizzie Alford' ],
