@@ -1,15 +1,13 @@
 // ***************************************************************************
 // Iteration 1 - `for...of` loop
 // ***************************************************************************
-//const { push } = require("./data.js");
 let usersArray = require ("./data.js")
 
 const getFirstNames = arr => {
   const userFirstNames = [];
   for (let user of arr) {
     userFirstNames.push(user.firstName)
-    //console.log(userFirstNames)
-    // Your code goes here ...
+    
   }
   return userFirstNames
 };
@@ -45,17 +43,13 @@ console.log(getFullNames(usersArray));
 // Iteration 3 - ES6 destructuring , for of loop, object literal
 // ***************************************************************************
 
-//SYNTAX const {name: {first} , address } = person
-
  
 const getUsersCreditDetails = arr => {
-  //let {firstName, lastName, balance} = usersArray
  let usersCreditDetails = []
   for (let user of arr){
   let {firstName, lastName, balance} = user
   usersCreditDetails.push({firstName, lastName, balance})
   }
-  // Your code goes here ...
   return usersCreditDetails
 };
 
@@ -75,14 +69,20 @@ console.log(getUsersCreditDetails(usersArray));
 
 const genderView = users => {
   // Your code goes here ...
-  let femaleArray = []
-  let femaleUsers =  users.filter((elem)=> {
-    return elem.gender = "female"
+  let femaleUsers = []
+  let maleUsers = []
+  users.filter((elem)=> {
+    if (elem.gender == "female"){
+      femaleUsers.push(`${elem.firstName} ${elem.lastName}`) 
+    }
+    if (elem.gender == "male"){
+      maleUsers.push(`${elem.firstName} ${elem.lastName}`)
+
+    }
+    
   })
 
-  femaleArray.push(`${firstName} ${lastName}`) 
-  //let maleUsers 
-  return femaleArray []
+  return {femaleUsers, maleUsers}
 
 };
 
